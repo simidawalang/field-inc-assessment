@@ -5,7 +5,7 @@ const EmptyState = () => {
     return (
         <div className='empty-state'>
             <img src={grayCatLogo} alt="gray cat logo" />
-            <p>No mood hisory to show yet.</p>
+            <p>No mood history to show yet.</p>
         </div>
     );
 };

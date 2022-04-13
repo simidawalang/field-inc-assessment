@@ -7,13 +7,14 @@ import indifferent from "./assets/emojis/indifferent.svg";
 import happy from "./assets/emojis/happy.svg";
 
 import "./scss/styles.scss";
+import MoodEmoji from "./component/MoodEmoji";
 
 const App = () => {
   const [catMood, setCatMood] = useState({
     emoji: null,
     mood: "",
     message: "",
-    date: ""
+    date: "",
   });
   const [moodHistory, setMoodHistory] = useState([]);
 
@@ -25,7 +26,7 @@ const App = () => {
         emoji: sad,
         mood: "sad",
         message: "Cat was sad.",
-        date: Date.now()
+        date: Date.now(),
       });
     }
     if (id === "indifferent") {
@@ -33,7 +34,7 @@ const App = () => {
         emoji: indifferent,
         mood: "indifferent",
         message: "Cat was indifferent.",
-        date: Date.now()
+        date: Date.now(),
       });
     }
     if (id === "happy") {
@@ -41,7 +42,7 @@ const App = () => {
         emoji: happy,
         mood: "happy",
         message: "Cat was super excited!",
-        date: Date.now()
+        date: Date.now(),
       });
     }
   };
@@ -55,19 +56,39 @@ const App = () => {
   return (
     <div className="home-page">
       <form onSubmit={handleSubmit}>
-        <img src={catLogo} alt="Cat Logo" width={94} height={79} />
-        <p>What is your cat’s current mood?</p>
+        <img
+          id="form-logo"
+          src={catLogo}
+          alt="Cat Logo"
+          width={94}
+          height={79}
+        />
+        <p className="form-question">What's your cat’s current mood?</p>
         <div className="mood-options">
-          <img id="sad" src={sad} alt="sad emoji" onClick={selectMood} />
-          <img
+          <MoodEmoji
+            id="sad"
+            mood="sad"
+            src={sad}
+            alt="sad emoji"
+            onClick={selectMood}
+          />
+
+          <MoodEmoji
             id="indifferent"
             src={indifferent}
+            mood="indifferent"
             alt="indifferent emoji"
             onClick={selectMood}
           />
-          <img id="happy" src={happy} alt="happy emoji" onClick={selectMood} />
+          <MoodEmoji
+            id="happy"
+            src={happy}
+            mood="happy"
+            alt="happy emoji"
+            onClick={selectMood}
+          />
         </div>
-        <p>{catMood.message}</p>
+        <p className={`${catMood.mood} message`}>{catMood.message}</p>
         <button onClick={handleSubmit}>Save Mood</button>
       </form>
       <div className="mood-tracker">

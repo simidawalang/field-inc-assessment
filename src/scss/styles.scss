@@ -1,20 +1,35 @@
-$black: #120c35;
-$gray: #c4c4c4;
 $white: #ffffff;
+$gray: #c4c4c4;
+$dark-gray: #898583;
+$black: #120c35;
 
 $dark-brown: #35100c;
 $green: #1d9a39;
 $orange: #ff9635;
 $red: #f93131;
+$Nunito: 'Nunito', sans-serif;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: $Nunito;
 }
 
 body {
   color: $dark-brown;
+}
+
+.happy {
+    color: $green;
+}
+
+.indifferent {
+    color: $orange;
+}
+
+.sad {
+    color: $red;
 }
 
 .home-page {
@@ -32,6 +47,20 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    & #form-logo {
+        margin-bottom: 20px;
+    }
+    & .form {
+        &-question {
+            font-size: 1.5rem;
+            text-align: center;
+            color: $dark-gray;
+            width: 18ch;
+        }
+    }
+    & p.message {
+        height: 25px;
+    }
     & .mood {
         &-item {
             border-radius: 5px;
@@ -39,27 +68,35 @@ body {
         }
         &-options {
             width: fit-content;
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            & img {
+                border-radius: 50%;
+                padding: 10px;
+                &.happy {
+                    border: 1px solid $green;
+                    background: rgba($green, 0.5);
+                }
+                &.indifferent {
+                    border: 1px solid $orange;
+                    background: rgba($orange, 0.5);
+                }
+                &.sad {
+                    border: 1px solid $red;
+                    background: rgba($red, 0.5);
+                }
+            }
         }
     }
 
     & button {
         background: $black;
         color: $white;
+        padding: 8px 20px;
+        border-radius: 5px;
+        margin-top: 40px;
+        font-weight: 700;
     }
   }
-}
-
-.happy {
-    color: $green;
-    border: 1px solid $green;
-}
-
-.indifferent {
-    color: $orange;
-    border: 1px solid $orange;
-}
-
-.sad {
-    color: $red;
-    border: 1px solid $red;
 }
