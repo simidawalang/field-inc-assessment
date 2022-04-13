@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import EmptyState from "./component/EmptyState";
 import MoodTracker from "./component/MoodTracker";
 import catLogo from "./assets/images/cat-logo.svg";
@@ -17,11 +17,23 @@ const App = () => {
     date: "",
   });
   const [moodHistory, setMoodHistory] = useState([]);
+  const [isMoodSelected, setIsMoodSelected] = useState(false);
+
+  const happyRef  = useRef();
+  const indifferentRef  = useRef();
+  const sadRef  = useRef();
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+
+    } 
+  }, [isMoodSelected]);
 
   const selectMood = (e) => {
     const { id } = e.target;
     const { target } = e;
     target.classList.add("active");
+    setIsMoodSelected(true);
 
     if (id === "sad") {
       setCatMood({
@@ -53,6 +65,7 @@ const App = () => {
     e.preventDefault();
     setMoodHistory((prev) => [...prev, catMood]);
     setCatMood({ mood: "", message: "" });
+    setIsMoodSelected(false);
   };
 
   return (
@@ -73,6 +86,7 @@ const App = () => {
             src={sad}
             alt="sad emoji"
             onClick={selectMood}
+            ref={sadRef}
           />
 
           <MoodEmoji
@@ -81,6 +95,7 @@ const App = () => {
             mood="indifferent"
             alt="indifferent emoji"
             onClick={selectMood}
+            ref={indifferentRef}
           />
           <MoodEmoji
             id="happy"
@@ -88,14 +103,15 @@ const App = () => {
             mood="happy"
             alt="happy emoji"
             onClick={selectMood}
+            ref={happyRef}
           />
         </div>
         <p className={`${catMood.mood} message`}>{catMood.message}</p>
-        <button onClick={handleSubmit}>Save Mood</button>
+        <button disabled={!catMood.mood} onClick={handleSubmit}>Save Mood</button>
       </form>
       <div className="mood-tracker">
         <div className="header">
-          <img src={catLogo} width={49} height={41} />
+          <img src={catLogo} width={49} height={41} alt="Cat logo"/>
           <h3>Cat mood tracker™</h3>
         </div>
         <p className="mood-history">mood history</p>
