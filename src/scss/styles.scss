@@ -1,0 +1,17 @@
+$dark-brown: #35100C;
+$green: #1D9A39;
+$orange: #FF9635;
+$red: #FF9635;
+$black: #120C35;
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: $dark-brown;
+}
