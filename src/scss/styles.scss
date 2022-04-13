@@ -34,11 +34,21 @@ body {
 
 .home-page {
   padding: 70px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-direction: column;
+
   @media only screen and (min-width: 768px) {
-    display: flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 200px;
+    gap: 150px;
   }
+
+  @media only screen and (min-width: 992px) {
+      gap: 200px;
+  }
+
   & form {
     border: 1px solid $gray;
     border-radius: 15px;
@@ -90,12 +100,12 @@ body {
 
 .mood {
   &-tracker {
-      &-container {
-          margin-top: 40px;
-      }
-      @media only screen and (min-width: 768px) {
-          width: 480px;
-      }
+    &-container {
+      margin-top: 40px;
+    }
+    @media only screen and (min-width: 768px) {
+      width: 480px;
+    }
     & .header {
       display: flex;
       align-items: center;
@@ -154,7 +164,6 @@ body {
   &-date {
     color: $gray;
     font-size: 0.75rem;
-
   }
 }
 
