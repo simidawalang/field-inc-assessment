@@ -20,6 +20,8 @@ const App = () => {
 
   const selectMood = (e) => {
     const { id } = e.target;
+    const { target } = e;
+    target.classList.add("active");
 
     if (id === "sad") {
       setCatMood({
@@ -92,8 +94,11 @@ const App = () => {
         <button onClick={handleSubmit}>Save Mood</button>
       </form>
       <div className="mood-tracker">
-        <h3>Cat mood tracker</h3>
-        <p>Mood Tracker</p>
+        <div className="header">
+          <img src={catLogo} width={49} height={41} />
+          <h3>Cat mood tracker™</h3>
+        </div>
+        <p className="mood-history">mood history</p>
         <div>
           {moodHistory.length === 0 ? (
             <EmptyState />

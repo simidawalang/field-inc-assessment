@@ -7,7 +7,7 @@ $dark-brown: #35100c;
 $green: #1d9a39;
 $orange: #ff9635;
 $red: #f93131;
-$Nunito: 'Nunito', sans-serif;
+$Nunito: "Nunito", sans-serif;
 
 * {
   margin: 0;
@@ -21,15 +21,15 @@ body {
 }
 
 .happy {
-    color: $green;
+  color: $green;
 }
 
 .indifferent {
-    color: $orange;
+  color: $orange;
 }
 
 .sad {
-    color: $red;
+  color: $red;
 }
 
 .home-page {
@@ -37,6 +37,7 @@ body {
   padding: 70px 40px;
   @media onlyscreen and (min-width: 768px) {
     display: flex;
+    gap: 40px;
   }
   & form {
     border: 1px solid $gray;
@@ -48,55 +49,77 @@ body {
     align-items: center;
     justify-content: center;
     & #form-logo {
-        margin-bottom: 20px;
+      margin-bottom: 20px;
     }
     & .form {
-        &-question {
-            font-size: 1.5rem;
-            text-align: center;
-            color: $dark-gray;
-            width: 18ch;
-        }
+      &-question {
+        font-size: 1.5rem;
+        text-align: center;
+        color: $dark-gray;
+        width: 18ch;
+      }
     }
     & p.message {
-        height: 25px;
+      height: 25px;
     }
     & .mood {
-        &-item {
-            border-radius: 5px;
-            margin-bottom: 20px;
+      &-item {
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      &-options {
+        width: fit-content;
+        display: flex;
+        gap: 10px;
+        margin: 15px 0;
+        & img {
+          border-radius: 50%;
+          padding: 10px;
+          &.active.happy {
+            border: 1px solid $green;
+            background: rgba($green, 0.5);
+          }
+          &.active.indifferent {
+            border: 1px solid $orange;
+            background: rgba($orange, 0.5);
+          }
+          &.active.sad {
+            border: 1px solid $red;
+            background: rgba($red, 0.5);
+          }
         }
-        &-options {
-            width: fit-content;
-            display: flex;
-            gap: 10px;
-            margin: 15px 0;
-            & img {
-                border-radius: 50%;
-                padding: 10px;
-                &.happy {
-                    border: 1px solid $green;
-                    background: rgba($green, 0.5);
-                }
-                &.indifferent {
-                    border: 1px solid $orange;
-                    background: rgba($orange, 0.5);
-                }
-                &.sad {
-                    border: 1px solid $red;
-                    background: rgba($red, 0.5);
-                }
-            }
-        }
+      }
     }
 
     & button {
-        background: $black;
-        color: $white;
-        padding: 8px 20px;
-        border-radius: 5px;
-        margin-top: 40px;
-        font-weight: 700;
+      background: $black;
+      color: $white;
+      padding: 8px 20px;
+      border-radius: 5px;
+      margin-top: 40px;
+      font-weight: 700;
     }
   }
+}
+
+.mood {
+    &-tracker {
+        & .header {
+          display: flex;
+          align-items: center;
+          & img {
+              margin: 10px;
+          }
+          & h3 {
+              font-size: 1.5rem;
+          }
+        }
+      }
+      &-history {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: $gray;
+        margin-top: 10px;
+        text-align: center;
+      }
 }
