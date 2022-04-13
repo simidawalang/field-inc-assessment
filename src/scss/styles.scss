@@ -1,22 +1,65 @@
-$dark-brown: #35100C;
-$green: #1D9A39;
-$orange: #FF9635;
-$red: #FF9635;
-$black: #120C35;
+$black: #120c35;
+$gray: #c4c4c4;
+$white: #ffffff;
 
-
+$dark-brown: #35100c;
+$green: #1d9a39;
+$orange: #ff9635;
+$red: #f93131;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    color: $dark-brown;
+  color: $dark-brown;
 }
 
 .home-page {
+  display: flex;
+  padding: 70px 40px;
+  @media onlyscreen and (min-width: 768px) {
     display: flex;
-    padding: 70px 40px;
+  }
+  & form {
+    border: 1px solid $gray;
+    border-radius: 15px;
+    height: 577px;
+    width: 465px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & .mood {
+        &-item {
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        &-options {
+            width: fit-content;
+        }
+    }
+
+    & button {
+        background: $black;
+        color: $white;
+    }
+  }
+}
+
+.happy {
+    color: $green;
+    border: 1px solid $green;
+}
+
+.indifferent {
+    color: $orange;
+    border: 1px solid $orange;
+}
+
+.sad {
+    color: $red;
+    border: 1px solid $red;
 }
