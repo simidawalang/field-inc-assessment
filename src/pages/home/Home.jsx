@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 
-import EmptyState from "./components/EmptyState";
-import MoodEmoji from "./components/MoodEmoji";
-import MoodTracker from "./components/MoodTracker";
+import EmptyState from "../../components/EmptyState/EmptyState";
+import MoodEmoji from "../../components/MoodEmoji/MoodEmoji";
+import MoodTracker from "../../components/MoodTracker/MoodTracker";
 
-import catLogo from "./assets/images/cat-logo.svg";
-import sad from "./assets/emojis/sad.svg";
-import indifferent from "./assets/emojis/indifferent.svg";
-import happy from "./assets/emojis/happy.svg";
+import catLogo from "../../assets/images/cat-logo.svg";
+import sad from "../../assets/emojis/sad.svg";
+import indifferent from "../../assets/emojis/indifferent.svg";
+import happy from "../../assets/emojis/happy.svg";
 
-import "./scss/styles.scss";
-
-const App = () => {
+const Home = () => {
   const [catMood, setCatMood] = useState({
     emoji: null,
     mood: "",
@@ -69,7 +67,7 @@ const App = () => {
 
   return (
     <div className="home-page">
-      <form onSubmit={handleSubmit}>
+      <form className="home-page__form" onSubmit={handleSubmit}>
         <img
           id="form-logo"
           className="mood-option"
@@ -78,7 +76,7 @@ const App = () => {
           width={94}
           height={79}
         />
-        <p className="form-question">What's your cat’s current mood?</p>
+        <p className="home-page__question">What's your cat’s current mood?</p>
         <div className="mood-options">
           <MoodEmoji
             id="sad"
@@ -106,13 +104,13 @@ const App = () => {
             onClick={selectMood}
           />
         </div>
-        <p className={`${catMood.mood} message`}>{catMood.message}</p>
+        <p className={`${catMood.mood} mood-description`}>{catMood.message}</p>
         <button disabled={!catMood.mood} onClick={handleSubmit}>
           Save Mood
         </button>
       </form>
       <div className="mood-tracker">
-        <div className="header">
+        <div className="mood-tracker__header">
           <img src={catLogo} width={49} height={41} alt="Cat logo" />
           <h3>Cat mood tracker™</h3>
         </div>
@@ -129,4 +127,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;

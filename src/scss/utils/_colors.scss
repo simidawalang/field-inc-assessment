@@ -1,0 +1,21 @@
+$white: #ffffff;
+$gray: #c4c4c4;
+$dark-gray: #898583;
+$black: #120c35;
+
+$dark-brown: #35100c;
+$green: #1d9a39;
+$orange: #ff9635;
+$red: #f93131;
+
+.happy {
+  color: $green;
+}
+
+.indifferent {
+  color: $orange;
+}
+
+.sad {
+  color: $red;
+}

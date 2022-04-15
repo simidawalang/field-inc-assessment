@@ -1,5 +1,5 @@
 import React from "react";
-import MoodEmoji from "./MoodEmoji";
+import MoodEmoji from "../MoodEmoji/MoodEmoji";
 import dayjs from "dayjs";
 
 const MoodTracker = ({ moodHistory }) => {

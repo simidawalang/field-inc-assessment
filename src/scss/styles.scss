@@ -1,12 +1,18 @@
-$white: #ffffff;
-$gray: #c4c4c4;
-$dark-gray: #898583;
-$black: #120c35;
+// Main stylesheet
 
-$dark-brown: #35100c;
-$green: #1d9a39;
-$orange: #ff9635;
-$red: #f93131;
+//Utils
+@import "./utils/colors.scss";
+@import "./utils/media-queries.scss";
+
+// Components
+@import "../components/MoodEmoji/mood-emoji.scss";
+@import "../components/EmptyState/empty-state.scss";
+@import "../components/MoodTracker/mood-tracker.scss";
+
+//Pages
+@import "../pages/home/home.scss";
+
+
 $Nunito: "Nunito", sans-serif;
 
 * {
@@ -20,168 +26,3 @@ body {
   color: $dark-brown;
 }
 
-.happy {
-  color: $green;
-}
-
-.indifferent {
-  color: $orange;
-}
-
-.sad {
-  color: $red;
-}
-
-.home-page {
-  padding: 70px 40px;
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  flex-direction: column;
-
-  @media only screen and (min-width: 768px) {
-    flex-direction: row;
-    justify-content: center;
-    gap: 150px;
-  }
-
-  @media only screen and (min-width: 992px) {
-      gap: 200px;
-  }
-
-  & form {
-    border: 1px solid $gray;
-    border-radius: 15px;
-    height: 577px;
-    width: 465px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    & #form-logo {
-      margin-bottom: 20px;
-    }
-    & .form {
-      &-question {
-        font-size: 1.5rem;
-        text-align: center;
-        color: $dark-gray;
-        width: 18ch;
-        margin-bottom: 20px;
-      }
-    }
-    & p.message {
-      height: 25px;
-    }
-    & .mood {
-      &-options {
-        width: fit-content;
-        display: flex;
-        gap: 10px;
-        margin: 15px 0;
-      }
-    }
-
-    & button {
-      background: $black;
-      color: $white;
-      padding: 8px 20px;
-      border-radius: 5px;
-      margin-top: 40px;
-      font-weight: 700;
-      border: 0;
-      &:disabled {
-        background-color: #efeeee;
-        cursor: not-allowed;
-      }
-    }
-  }
-}
-
-.mood {
-  &-tracker {
-    &-container {
-      margin-top: 40px;
-    }
-    @media only screen and (min-width: 768px) {
-      width: 480px;
-    }
-    & .header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      & img {
-        margin-right: 10px;
-      }
-      & h3 {
-        font-size: 1.5rem;
-      }
-    }
-  }
-  &-item {
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    &-happy {
-      border: 1px solid $green;
-    }
-    &-indifferent {
-      border: 1px solid $orange;
-    }
-    &-sad {
-      border: 1px solid $red;
-    }
-  }
-  &-details {
-    margin-left: 10px;
-  }
-  &-emoji {
-    border-radius: 50%;
-    padding: 10px;
-    &.active.happy {
-      border: 1px solid $green;
-      background: rgba($green, 0.5);
-    }
-    &.active.indifferent {
-      border: 1px solid $orange;
-      background: rgba($orange, 0.5);
-    }
-    &.active.sad {
-      border: 1px solid $red;
-      background: rgba($red, 0.5);
-    }
-  }
-  &-history {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: $gray;
-    margin-top: 10px;
-    text-align: center;
-  }
-  &-date {
-    color: $gray;
-    font-size: 0.75rem;
-  }
-}
-
-.empty-state {
-  &-container {
-    margin: 60px auto 0 auto;
-    width: 345px;
-    height: 264px;
-    border: 1px solid #efeeee;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    & p {
-      width: 15ch;
-      margin-top: 10px;
-      text-align: center;
-    }
-  }
-}

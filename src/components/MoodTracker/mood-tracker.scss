@@ -1,0 +1,54 @@
+.mood {
+    &-tracker {
+      &-container {
+        margin-top: 40px;
+      }
+      @media #{ $medium-up} {
+        width: 480px;
+      }
+      &__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & img {
+          margin-right: 10px;
+        }
+        & h3 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    &-item {
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      &-happy {
+        border: 1px solid $green;
+      }
+      &-indifferent {
+        border: 1px solid $orange;
+      }
+      &-sad {
+        border: 1px solid $red;
+      }
+    }
+    &-details {
+      margin-left: 10px;
+    }
+    
+    &-history {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: $gray;
+      margin-top: 10px;
+      text-align: center;
+    }
+    &-date {
+      color: $gray;
+      font-size: 0.75rem;
+    }
+  }
+  

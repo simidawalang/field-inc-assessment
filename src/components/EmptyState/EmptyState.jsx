@@ -1,5 +1,5 @@
 import React from "react";
-import grayCatLogo from "../assets/images/gray-cat-logo.svg";
+import grayCatLogo from "../../assets/images/gray-cat-logo.svg";
 
 const EmptyState = () => {
   return (
