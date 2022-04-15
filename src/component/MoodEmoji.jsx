@@ -4,7 +4,7 @@ const MoodEmoji = forwardRef(({ id, mood, src, alt, onClick }, ref) => {
   return (
     <img
       id={id}
-      className={`mood-emoji ${mood}`}
+      className={`${mood} mood-emoji mood-option`}
       src={src}
       alt={alt}
       onClick={onClick}
