@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import EmptyState from "./component/EmptyState";
-import MoodTracker from "./component/MoodTracker";
+
+import EmptyState from "./components/EmptyState";
+import MoodEmoji from "./components/MoodEmoji";
+import MoodTracker from "./components/MoodTracker";
+
 import catLogo from "./assets/images/cat-logo.svg";
 import sad from "./assets/emojis/sad.svg";
 import indifferent from "./assets/emojis/indifferent.svg";
 import happy from "./assets/emojis/happy.svg";
 
 import "./scss/styles.scss";
-import MoodEmoji from "./component/MoodEmoji";
 
 const App = () => {
   const [catMood, setCatMood] = useState({
@@ -26,7 +28,7 @@ const App = () => {
   };
 
   const selectMood = (e) => {
-    const { id, classList } = e.target;
+    const { id } = e.target;
 
     removeActiveClass();
     e.currentTarget.classList.add("active");
@@ -70,6 +72,7 @@ const App = () => {
       <form onSubmit={handleSubmit}>
         <img
           id="form-logo"
+          className="mood-option"
           src={catLogo}
           alt="Cat Logo"
           width={94}
@@ -79,6 +82,7 @@ const App = () => {
         <div className="mood-options">
           <MoodEmoji
             id="sad"
+            className="mood-option"
             mood="sad"
             src={sad}
             alt="sad emoji"
@@ -87,6 +91,7 @@ const App = () => {
 
           <MoodEmoji
             id="indifferent"
+            className="mood-option"
             src={indifferent}
             mood="indifferent"
             alt="indifferent emoji"
@@ -94,6 +99,7 @@ const App = () => {
           />
           <MoodEmoji
             id="happy"
+            className="mood-option"
             src={happy}
             mood="happy"
             alt="happy emoji"

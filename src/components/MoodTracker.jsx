@@ -1,12 +1,12 @@
 import React from "react";
-import dayjs from "dayjs";
 import MoodEmoji from "./MoodEmoji";
+import dayjs from "dayjs";
 
 const MoodTracker = ({ moodHistory }) => {
   return (
     <div className="mood-tracker-container">
       {moodHistory.map(({ mood, emoji, message, date }) => (
-        <div className={`mood-item ${mood}`} key={date}>
+        <div className={`${mood} mood-item mood-item-${mood}`} key={date}>
           <MoodEmoji mood={`${mood} active`} src={emoji} alt="emoji" />
           <div className="mood-details">
             <p>{message}</p>

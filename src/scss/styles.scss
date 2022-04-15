@@ -125,13 +125,13 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    &.happy {
+    &-happy {
       border: 1px solid $green;
     }
-    &.indifferent {
+    &-indifferent {
       border: 1px solid $orange;
     }
-    &.sad {
+    &-sad {
       border: 1px solid $red;
     }
   }
